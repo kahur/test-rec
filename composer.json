@@ -15,6 +15,14 @@
         "symfony/yaml": "7.2.*"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.70",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "7.2.*",
+        "symfony/css-selector": "7.2.*",
+        "symfony/phpunit-bridge": "^7.2"
     },
     "config": {
         "allow-plugins": {
@@ -46,6 +54,14 @@
         "symfony/polyfill-php82": "*"
     },
     "scripts": {
+        "phpstan": "vendor/bin/phpstan analyze --memory-limit=1G",
+        "phpunit": "php bin/phpunit",
+        "phpcs": "vendor/bin/php-cs-fixer check -vv",
+        "tests": [
+            "@phpstan",
+            "@phpcs",
+            "@phpunit"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
